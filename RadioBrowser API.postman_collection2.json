@@ -1,0 +1,437 @@
+{
+	"info": {
+		"_postman_id": "920e9e86-894c-496a-9a2c-c9ad6de13c05",
+		"name": "RadioBrowser API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "48085026",
+		"_collection_link": "https://martinmaher-3943501.postman.co/workspace/Martin-Maher's-Workspace~ec75dd83-4736-49d4-8dbf-4dc74e4e519a/collection/48085026-920e9e86-894c-496a-9a2c-c9ad6de13c05?action=share&source=collection_link&creator=48085026"
+	},
+	"item": [
+		{
+			"name": "Search stations by name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status is 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is JSON\", () => {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is array\", () => {\r",
+							"    const body = pm.response.json();\r",
+							"    pm.expect(Array.isArray(body)).to.be.true;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Stations have 'name' and 'url_resolved'\", () => {\r",
+							"    const body = pm.response.json();\r",
+							"    body.forEach(st => {\r",
+							"        pm.expect(st).to.have.property(\"name\");\r",
+							"        pm.expect(st).to.have.property(\"url_resolved\");\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/json/stations/search?name=bbc&limit=5\n",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"json",
+						"stations",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "bbc"
+						},
+						{
+							"key": "limit",
+							"value": "5\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Top stations by clicks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status is 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is JSON\", () => {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is array\", () => {\r",
+							"    const body = pm.response.json();\r",
+							"    pm.expect(Array.isArray(body)).to.be.true;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Stations have 'name' and 'url_resolved'\", () => {\r",
+							"    const body = pm.response.json();\r",
+							"    body.forEach(st => {\r",
+							"        pm.expect(st).to.have.property(\"name\");\r",
+							"        pm.expect(st).to.have.property(\"url_resolved\");\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{baseUrl}}/json/stations/topclick/10"
+			},
+			"response": []
+		},
+		{
+			"name": "Top stations by votes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status is 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is JSON\", () => {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is array\", () => {\r",
+							"    const body = pm.response.json();\r",
+							"    pm.expect(Array.isArray(body)).to.be.true;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Stations have 'name' and 'url_resolved'\", () => {\r",
+							"    const body = pm.response.json();\r",
+							"    body.forEach(st => {\r",
+							"        pm.expect(st).to.have.property(\"name\");\r",
+							"        pm.expect(st).to.have.property(\"url_resolved\");\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{baseUrl}}/json/stations/topvote/10"
+			},
+			"response": []
+		},
+		{
+			"name": "Stations by country code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status is 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is JSON\", () => {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is array\", () => {\r",
+							"    const body = pm.response.json();\r",
+							"    pm.expect(Array.isArray(body)).to.be.true;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Stations have 'name' and 'url_resolved'\", () => {\r",
+							"    const body = pm.response.json();\r",
+							"    body.forEach(st => {\r",
+							"        pm.expect(st).to.have.property(\"name\");\r",
+							"        pm.expect(st).to.have.property(\"url_resolved\");\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/json/stations/bycountrycodeexact/EG?limit=10",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"json",
+						"stations",
+						"bycountrycodeexact",
+						"EG"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stations by codec",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status is 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is JSON\", () => {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is array\", () => {\r",
+							"    const body = pm.response.json();\r",
+							"    pm.expect(Array.isArray(body)).to.be.true;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Stations have 'name' and 'url_resolved'\", () => {\r",
+							"    const body = pm.response.json();\r",
+							"    body.forEach(st => {\r",
+							"        pm.expect(st).to.have.property(\"name\");\r",
+							"        pm.expect(st).to.have.property(\"url_resolved\");\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/json/stations/bycodec/MP3?limit=10",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"json",
+						"stations",
+						"bycodec",
+						"MP3"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stations by language",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status is 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is JSON\", () => {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is array\", () => {\r",
+							"    const body = pm.response.json();\r",
+							"    pm.expect(Array.isArray(body)).to.be.true;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Stations have 'name' and 'url_resolved'\", () => {\r",
+							"    const body = pm.response.json();\r",
+							"    body.forEach(st => {\r",
+							"        pm.expect(st).to.have.property(\"name\");\r",
+							"        pm.expect(st).to.have.property(\"url_resolved\");\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/json/stations/bylanguage/en?limit=10",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"json",
+						"stations",
+						"bylanguage",
+						"en"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all countries",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "List ISO country codes",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "List all tags",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "List all codecs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status is 200\", () => pm.response.to.have.status(200));\r",
+							"pm.test(\"Response is JSON array\", () => pm.expect(pm.response.json()).to.be.an(\"array\"));\r",
+							"pm.test(\"Each codec has 'name' and 'stationcount'\", () => {\r",
+							"    const data = pm.response.json();\r",
+							"    data.forEach(codec => {\r",
+							"        pm.expect(codec).to.have.property(\"name\");\r",
+							"        pm.expect(codec).to.have.property(\"stationcount\");\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{baseUrl}}/json/codecs"
+			},
+			"response": []
+		},
+		{
+			"name": "API stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status is 200\", () => pm.response.to.have.status(200));\r",
+							"pm.test(\"Response is JSON object\", () => pm.expect(pm.response.json()).to.be.an(\"object\"));\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{baseUrl}}/json/stats"
+			},
+			"response": []
+		},
+		{
+			"name": "List API mirrors",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status is 200\", () => pm.response.to.have.status(200));\r",
+							"pm.test(\"Response is JSON object\", () => pm.expect(pm.response.json()).to.be.an(\"object\"));\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{baseUrl}}/json/servers"
+			},
+			"response": []
+		}
+	]
+}
